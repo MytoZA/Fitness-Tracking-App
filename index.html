@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Fitness Tracker</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header>
+        <h1>My Fitness Tracker</h1>
+         <div id="auth-status">
+            <span id="welcome-message"></span>
+            <button id="logout-btn" style="display: none;">Logout</button>
+        </div>
+    </header>
+
+    <main>
+        <section id="auth-section">
+            <h2>Welcome! Please Login or Register</h2>
+
+            <div id="login-form-container" class="auth-form-visible">
+                <h3>Login</h3>
+                <form id="login-form">
+                    <div class="form-group">
+                        <label for="login-username">Username:</label>
+                        <input type="text" id="login-username" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="login-password">Password:</label>
+                        <input type="password" id="login-password" required>
+                    </div>
+                    <button type="submit">Login</button>
+                    <p class="auth-toggle">Don't have an account? <a href="#" id="show-register">Register here</a></p>
+                    <p id="login-message" class="auth-message"></p>
+                </form>
+            </div>
+
+            <div id="register-form-container" style="display: none;">
+                <h3>Register</h3>
+                <form id="register-form">
+                    <div class="form-group">
+                        <label for="register-username">Username:</label>
+                        <input type="text" id="register-username" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="register-password">Password:</label>
+                        <input type="password" id="register-password" required>
+                    </div>
+                    <button type="submit">Register</button>
+                    <p class="auth-toggle">Already have an account? <a href="#" id="show-login">Login here</a></p>
+                    <p id="register-message" class="auth-message"></p>
+                </form>
+            </div>
+        </section>
+
+        <div id="app-content" style="display: none;">
+        <section id="workout-form">
+            <h2>Log New Workout</h2>
+            <form id="new-workout-form">
+                <div class="form-group">
+                    <label for="workout-date">Date:</label>
+                    <input type="date" id="workout-date" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="exercise-type">Exercise Type:</label>
+                    <select id="exercise-type" required>
+                        <option value="">Select Type</option>
+                        <option value="running">Running</option>
+                        <option value="weightlifting">Weightlifting</option>
+                        <option value="yoga">Yoga</option>
+                        <option value="pushUps">Push-Ups</option>
+                        <option value="sitUps">Sit-Ups</option>
+                        <option value="boxing">Boxing</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="duration-reps">Duration / Sets & Reps:</label>
+                    <input type="text" id="duration-reps" placeholder="e.g., 30 mins or 3 sets of 10 reps" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="workout-notes">Notes (Optional):</label>
+                    <textarea id="workout-notes" rows="3" placeholder="Any additional notes about your workout"></textarea>
+                </div>
+
+                <button type="submit">Log Workout</button>
+            </form>
+        </section>
+
+        <section id="workout-controls">
+            <h2>View Workouts</h2>
+            <div class="control-group">
+                <label for="filter-type">Filter by Type:</label>
+                <select id="filter-type">
+                    <option value="all">All Types</option>
+                    <option value="running">Running</option>
+                    <option value="weightlifting">Weightlifting</option>
+                    <option value="yoga">Yoga</option>
+                    <option value="cycling">Cycling</option>
+                    <option value="swimming">Swimming</option>
+                    <option value="other">Other</option>
+                </select>
+            </div>
+            <div class="control-group">
+                <label for="sort-order">Sort by Date:</label>
+                <select id="sort-order">
+                    <option value="newest">Newest First</option>
+                    <option value="oldest">Oldest First</option>
+                </select>
+            </div>
+        </section>
+
+        <section id="workout-list">
+            <h2>Logged Workouts</h2>
+            <ul id="workouts-container">
+                </ul>
+        </section>
+
+        <section id="workout-charts">
+            <h2>Workout Trends</h2>
+            <div class="chart-container">
+                <canvas id="caloriesBurnedChart"></canvas>
+            </div>
+        </section>
+
+         <section id="workout-stats">
+            <h2>Workout Summary</h2>
+            <p>Total Workouts Logged: <strong id="total-workouts">0</strong></p>
+            <p>Most Common Exercise: <strong id="most-common-exercise">N/A</strong></p>
+               <p>Total Calories Burned (Est.): <strong id="total-calories-burned">0</strong> kcal</p>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</body>
+</html>

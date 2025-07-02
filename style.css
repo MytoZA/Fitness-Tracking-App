@@ -1,0 +1,427 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-image: url('images/1.jpg');
+    color: #000000;
+    width: 100%;
+    height: 100%;
+    background-position: center;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+header {
+    text-align: center;
+    margin-bottom: 30px;
+    color: white;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+main {
+    max-width: 90%;
+    margin: 0 auto;
+    background-color: #96ff92;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+section {
+    margin-bottom: 40px;
+}
+
+h2 {
+    color: #005403;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+input[type="date"],
+input[type="text"],
+select,
+textarea {
+    width: calc(100% - 22px); /* Account for padding and border */
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+}
+
+textarea {
+    resize: vertical; /* Allow vertical resizing */
+}
+
+button[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+ul#workouts-container {
+    list-style: none;
+    padding: 0;
+}
+
+ul#workouts-container li {
+    background-color: #f9f9f9;
+    border: 1px solid #eee;
+    border-radius: 4px;
+    padding: 15px;
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+ul#workouts-container li strong {
+    color: #333;
+    margin-right: 5px;
+}
+
+ul#workouts-container li span {
+    margin-left: auto; /* Push the date to the right */
+    font-size: 0.9em;
+    color: #777;
+}
+
+/* Basic responsiveness */
+@media (max-width: 600px) {
+    body {
+        padding: 10px;
+    }
+    main {
+        padding: 20px;
+    }
+}
+
+
+.delete-btn {
+    background-color: #f44336; /* Red color */
+    color: white;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9em;
+    margin-left: 10px; /* Space it from the text */
+    float: right; /* Push to the right side of the list item */
+    transition: background-color 0.3s ease;
+}
+
+.delete-btn:hover {
+    background-color: #da190b;
+}
+
+/* Adjust li display for better button alignment */
+ul#workouts-container li {
+    background-color: #f9f9f9;
+    border: 1px solid #eee;
+    border-radius: 4px;
+    padding: 15px;
+    margin-bottom: 10px;
+    display: flex; /* Use flexbox */
+    align-items: center; /* Vertically align items in the middle */
+    flex-wrap: wrap; /* Allow items to wrap to next line on smaller screens */
+}
+
+ul#workouts-container li strong {
+    flex-shrink: 0; /* Prevent strong from shrinking */
+}
+
+ul#workouts-container li span {
+    margin-left: auto; /* Push the date to the right */
+    font-size: 0.9em;
+    color: #777;
+    flex-shrink: 0; /* Prevent span from shrinking */
+}
+
+
+#workout-stats {
+    background-color: #e8f5e9; /* Light green background */
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid #d4edda;
+    margin-top: 40px; /* Space it from the section above */
+}
+
+#workout-stats h2 {
+    color: #388e3c; /* Darker green for heading */
+    border-bottom: 1px solid #a5d6a7; /* Lighter border */
+}
+
+#workout-stats p {
+    font-size: 1.1em;
+    margin-bottom: 10px;
+}
+
+#workout-stats p strong {
+    color: #1b5e20; /* Even darker green for emphasis */
+}
+
+.edit-btn {
+    background-color: #007bff; /* Blue color */
+    color: white;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9em;
+    margin-right: 5px; /* Space from delete button */
+    transition: background-color 0.3s ease;
+}
+
+.edit-btn:hover {
+    background-color: #0056b3;
+}
+
+.workout-actions {
+    margin-top: 10px; /* Space buttons from workout details */
+    align-self: flex-end; /* Align actions to the end in flex container */
+    margin-left: auto; /* Push actions to the right if space allows */
+    display: flex; /* Make buttons align nicely */
+    gap: 5px; /* Space between buttons */
+}
+
+ul#workouts-container li {
+    /* Existing styles, just ensure padding is sufficient and maybe remove float: right from delete-btn */
+    background-color: #f9f9f9;
+    border: 1px solid #eee;
+    border-radius: 4px;
+    padding: 15px;
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column; /* Changed to column to stack text and buttons */
+    /* Removed: align-items: center; */
+    /* Removed: flex-wrap: wrap; */
+}
+
+ul#workouts-container li strong,
+ul#workouts-container li span {
+    margin-bottom: 5px; /* Add some space below date and type */
+    margin-left: 0; /* Reset margin-left from previous styles if any */
+}
+
+/* Adjust delete button for new layout */
+.delete-btn {
+    /* Remove float: right; if it was there previously */
+    float: none;
+    margin-left: 0;
+}
+
+
+
+#workout-controls {
+    background-color: #e0f7fa; /* Light blue background */
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid #b2ebf2;
+    margin-bottom: 30px; /* Space it from the workout list below */
+    display: flex; /* Use flexbox for layout */
+    flex-wrap: wrap; /* Allow items to wrap on smaller screens */
+    gap: 20px; /* Space between control groups */
+    align-items: flex-end; /* Align items to the bottom if labels are different heights */
+}
+
+#workout-controls h2 {
+    color: #00838f; /* Darker blue for heading */
+    border-bottom: 1px solid #80deea;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+    width: 100%; /* Make heading take full width */
+}
+
+.control-group {
+    display: flex;
+    flex-direction: column;
+    flex: 1; /* Allow control groups to take equal space */
+    min-width: 180px; /* Ensure a minimum width before wrapping */
+}
+
+.control-group label {
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #006064;
+}
+
+#filter-type,
+#sort-order {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #a7d9de;
+    border-radius: 4px;
+    box-sizing: border-box;
+    background-color: #fff;
+}
+
+
+#workout-charts {
+    background-color: #fce4ec; /* Light pink background */
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid #f8bbd0;
+    margin-bottom: 30px;
+    text-align: center; /* Center the chart title */
+}
+
+#workout-charts h2 {
+    color: #ad1457; /* Darker pink for heading */
+    border-bottom: 1px solid #f48fb1;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+.chart-container {
+    position: relative; /* Needed for responsive canvas sizing */
+    width: 100%;
+    height: 300px; /* Set a fixed height for the chart container */
+    margin: 0 auto; /* Center the chart */
+}
+
+
+
+#auth-status {
+    text-align: right;
+    font-size: 1.1em;
+    margin-top: -15px; /* Pull it up a bit */
+}
+
+#auth-status #welcome-message {
+    font-weight: bold;
+    color: white;
+    margin-right: 10px;
+}
+
+#auth-status #logout-btn {
+    background-color: #f44336;
+    color: white;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9em;
+    transition: background-color 0.3s ease;
+}
+
+#auth-status #logout-btn:hover {
+    background-color: #da190b;
+}
+
+#auth-section {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    margin: 40px auto; /* Center the auth section */
+    text-align: center;
+}
+
+#auth-section h2 {
+    color: #4CAF50;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+#auth-section h3 {
+    color: #333;
+    margin-bottom: 20px;
+}
+
+#auth-section form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+#auth-section .form-group {
+    text-align: left;
+}
+
+#auth-section input[type="text"],
+#auth-section input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+#auth-section button[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+    width: auto; /* Allow button to size naturally */
+    align-self: center; /* Center the button */
+    margin-top: 10px;
+}
+
+#auth-section button[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+.auth-toggle {
+    margin-top: 20px;
+    font-size: 0.9em;
+    color: #555;
+}
+
+.auth-toggle a {
+    color: #4CAF50;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.auth-toggle a:hover {
+    text-decoration: underline;
+}
+
+.auth-message {
+    margin-top: 15px;
+    padding: 10px;
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+.auth-message.success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.auth-message.error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+/* Ensure existing form-group styles apply correctly too */
+.form-group {
+    margin-bottom: 15px;
+}
